@@ -6,7 +6,7 @@ import {
 	type License,
 	type Payload,
 	type ZodResponse,
-} from "../types/api";
+} from "@/types/api";
 
 export class ApiError extends Error {
 	constructor(

@@ -1,2 +1,2 @@
-export * from "./core/ApiClient";
-export * from "./types/api";
+export * from "@/core/ApiClient";
+export * from "@/types/api";
