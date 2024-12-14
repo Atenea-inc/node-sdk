@@ -1,5 +1,5 @@
 {
-	"name": "@ateneacc/sdk",
+	"name": "@ateneacc/node-sdk",
 	"version": "0.1.0",
 	"description": "SDK for Atenea License API",
 	"module": "dist/index.js",
