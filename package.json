@@ -1,0 +1,36 @@
+{
+	"name": "@atenea/sdk",
+	"version": "0.1.0",
+	"description": "SDK for Atenea License API",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"files": ["dist"],
+	"author": "jhoan.me (znotjhoan@gmail.com)",
+	"license": "CC BY-NC 4.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yourusername/atenea-sdk.git"
+	},
+	"scripts": {
+		"start": "bun run src/index.ts",
+		"dev": "bun run --hot src/index.ts",
+		"format": "bunx biome format --write",
+		"lint": "bunx biome lint",
+		"build": "bun build src/index.ts --outdir dist --target bun --format esm --minify",
+		"prod": "bun run dist/index.js",
+		"prepublishOnly": "bun run build"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.1",
+		"@types/bun": "^1.1.9"
+	},
+	"peerDependencies": {
+		"typescript": "^5.6.2"
+	},
+	"trustedDependencies": ["@biomejs/biome"],
+	"keywords": ["license", "sdk", "api"],
+	"publishConfig": {
+		"access": "public"
+	}
+}
