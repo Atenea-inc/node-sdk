@@ -1,52 +1,44 @@
-# 🌮 My TypeScript Template
+# 🌮 Atenea Node SDK
 
-This project is a template for a TypeScript project that uses Bun as the JavaScript runtime and Biome as the linter.
+This is the Node SDK for the Atenea License API, it is a simple way to validate licenses and get information about them.
 
 ## 🚀 Getting Started
 
-### First of all, you need to install the dependencies:
+`1.` First of all, you need to install the library:
 
-- [Bun](https://bun.sh) - Fast all-in-one JavaScript runtime.
-- [Debian](https://www.debian.org/index.en.html) - Debian is a free operating system (OS) for your computer.
-
-### Then, you need to install the project dependencies:
-
-- [Bun](https://bun.sh) - Fast all-in-one JavaScript runtime.
-- [Biome](https://biomejs.dev/) - The blazing fast and configurable linter.
-- [CI/CD](https://github.com/features/actions) - Continuous Integration and Continuous Deployment.
-
-## 📦 Installation
-
-We have two ways to install the project, using a development version or a production version.
-
-### 🧪 Development Version
-
-`1.` Install the dependencies:
 ```bash
-bun install
+bun install @ateneacc/node-sdk
 ```
 
-`2.` Run the development script:
-```bash
-bun run dev
+`2.` Then, you need to import the library and use it:
+
+```ts
+import { ApiClient } from "@ateneacc/node-sdk";
+
+const client = new ApiClient({
+	apiKey: "YOUR_API_KEY",
+	baseUrl: "https://api.atenea.cc",
+});
 ```
 
-### 🚀 Production Version
+`3.` You can now use the library to validate licenses and get information about them:
 
-`1.` Install the dependencies:
-```bash
-bun install
+```ts
+const { license, status } = await client.validateLicense({
+	license: "W1ZSQ-L9WG3-GP7MF-GRZIG-UEZPF",
+	application: "846a94d5-c21e-44b3-ae26-ba7e4dcfdc9c",
+});
+
+if (status !== LicenseStatus.VALID) {
+	console.log("License is invalid");
+	process.exit(1);
+}
+
+console.log("License is valid");
+console.log(license);
 ```
 
-`2.` Build the project, this will generate a `dist` folder with the production build:
-```bash
-bun run build
-```
-
-`3.` Run the production build, this will execute the `dist/index.js` file:
-```bash
-bun run prod
-```
+`4.` If the license is valid, you will receive the license information and the status of the license.
 
 ## 🤝 Contributing
 
@@ -54,4 +46,4 @@ We're open to any contributions, feel free to open an issue or a pull request.
 
 ## 📄 License
 
-This project is licensed under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) License.
+This project is licensed under the [GPL-3.0-only](LICENSE) license.
