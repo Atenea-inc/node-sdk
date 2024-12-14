@@ -3,7 +3,7 @@ name: "Validate if a build is valid"
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   check-valid-build:
